@@ -19,6 +19,16 @@ A comprehensive cybersecurity vulnerability scanner with web interface built wit
 - Python 3.8 or higher
 - pip (Python package manager)
 
+
+## runnning commands
+1)python -m venv venv
+
+2)venv\Scripts\activate
+
+3)pip install -r requirements.txt
+
+4)python -m backend.app
+
 ### Setup
 
 1. **Clone or create the project directory**:

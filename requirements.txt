@@ -1,0 +1,10 @@
+Flask==3.0.0
+Flask-CORS==4.0.0
+Flask-SQLAlchemy==3.1.1
+python-dotenv==1.0.0
+requests==2.31.0
+validators==0.22.0
+python-nmap==0.7.1
+beautifulsoup4==4.12.2
+cryptography==41.0.7
+Werkzeug==3.0.1

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Scanner - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 Security Vulnerability Scanner</h1>
+            <p>Comprehensive security testing toolkit</p>
+        </div>
+
+        <div class="nav">
+            <a href="/" class="active">Home</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+
+        <div class="content">
+            <h2>Available Security Scanners</h2>
+            
+            <div class="scanner-grid">
+                <!-- Port Scanner -->
+                <div class="scanner-card">
+                    <h3>🔍 Port Scanner</h3>
+                    <p>Scan for open ports and services</p>
+                    
+                    <form id="port-scan-form">
+                        <div class="form-group">
+                            <label for="port-target">Target IP/Domain:</label>
+                            <input type="text" id="port-target" placeholder="example.com or 192.168.1.1" required>
+                        </div>
+                        <button type="submit" class="btn">Start Scan</button>
+                    </form>
+                    
+                    <div id="port-loading" class="loading">
+                        <div class="spinner"></div>
+                        <p>Scanning...</p>
+                    </div>
+                    
+                    <div id="port-results" class="results"></div>
+                </div>
+
+                <!-- SQL Injection Scanner -->
+                <div class="scanner-card">
+                    <h3>💉 SQL Injection Scanner</h3>
+                    <p>Test for SQL injection vulnerabilities</p>
+                    
+                    <form id="sql-scan-form">
+                        <div class="form-group">
+                            <label for="sql-url">Target URL:</label>
+                            <input type="url" id="sql-url" placeholder="https://example.com/page?id=1" required>
+                        </div>
+                        <button type="submit" class="btn">Start Scan</button>
+                    </form>
+                    
+                    <div id="sql-loading" class="loading">
+                        <div class="spinner"></div>
+                        <p>Scanning...</p>
+                    </div>
+                    
+                    <div id="sql-results" class="results"></div>
+                </div>
+
+                <!-- XSS Scanner -->
+                <div class="scanner-card">
+                    <h3>⚡ XSS Scanner</h3>
+                    <p>Detect Cross-Site Scripting vulnerabilities</p>
+                    
+                    <form id="xss-scan-form">
+                        <div class="form-group">
+                            <label for="xss-url">Target URL:</label>
+                            <input type="url" id="xss-url" placeholder="https://example.com/page" required>
+                        </div>
+                        <button type="submit" class="btn">Start Scan</button>
+                    </form>
+                    
+                    <div id="xss-loading" class="loading">
+                        <div class="spinner"></div>
+                        <p>Scanning...</p>
+                    </div>
+                    
+                    <div id="xss-results" class="results"></div>
+                </div>
+
+                <!-- Password Strength Checker -->
+                <div class="scanner-card">
+                    <h3>🔑 Password Strength Checker</h3>
+                    <p>Analyze password strength and security</p>
+                    
+                    <form id="password-check-form">
+                        <div class="form-group">
+                            <label for="password-input">Password:</label>
+                            <input type="password" id="password-input" placeholder="Enter password to check" required>
+                        </div>
+                        <button type="submit" class="btn">Check Strength</button>
+                    </form>
+                    
+                    <div id="password-results" class="results"></div>
+                </div>
+
+                <!-- SSL/TLS Checker -->
+                <div class="scanner-card">
+                    <h3>🔒 SSL/TLS Checker</h3>
+                    <p>Verify SSL certificate and security</p>
+                    
+                    <form id="ssl-check-form">
+                        <div class="form-group">
+                            <label for="ssl-url">Target Domain:</label>
+                            <input type="text" id="ssl-url" placeholder="example.com" required>
+                        </div>
+                        <button type="submit" class="btn">Check SSL</button>
+                    </form>
+                    
+                    <div id="ssl-loading" class="loading">
+                        <div class="spinner"></div>
+                        <p>Checking...</p>
+                    </div>
+                    
+                    <div id="ssl-results" class="results"></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 20px; background: #fff3cd; border-radius: 8px;">
+                <h3>⚠️ Important Notice</h3>
+                <p><strong>Legal Disclaimer:</strong> Only use these tools on systems you own or have explicit permission to test. Unauthorized security testing is illegal.</p>
+                <p><strong>Educational Purpose:</strong> This tool is designed for educational purposes and authorized security testing only.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

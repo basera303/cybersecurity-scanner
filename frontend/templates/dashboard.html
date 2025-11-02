@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Scanner - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Dashboard</h1>
+            <p>Security scan history and statistics</p>
+        </div>
+
+        <div class="nav">
+            <a href="/">Home</a>
+            <a href="/dashboard" class="active">Dashboard</a>
+        </div>
+
+        <div class="content">
+            <h2>Recent Scans</h2>
+            
+            {% if scans %}
+            <div class="scan-history">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Type</th>
+                            <th>Target</th>
+                            <th>Status</th>
+                            <th>Risk Level</th>
+                            <th>Vulnerabilities</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for scan in scans %}
+                        <tr>
+                            <td>{{ scan.id }}</td>
+                            <td>{{ scan.scan_type.replace('_', ' ').title() }}</td>
+                            <td>{{ scan.target }}</td>
+                            <td>{{ scan.status }}</td>
+                            <td>
+                                <span class="risk-badge risk-{{ scan.risk_level }}">
+                                    {{ scan.risk_level }}
+                                </span>
+                            </td>
+                            <td>{{ scan.vulnerabilities_found }}</td>
+                            <td>{{ scan.created_at.strftime('%Y-%m-%d %H:%M') if scan.created_at else 'N/A' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="alert alert-info">No scans performed yet. Go to <a href="/">Home</a> to start scanning.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
